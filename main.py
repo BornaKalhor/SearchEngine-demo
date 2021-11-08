@@ -43,8 +43,13 @@ def digestData():
 
 def toCSV() -> None:
     with open('records.csv', 'a') as file:
-        for recrod in records:
-            file.write("{id},{tokens}\n".format(record[id]))
+        file.write("id, tokens\n")
+        for this in records:
+            id = this['id']
+            tokens = ' '.join(list(this['tokens']))
+
+            csv_format = "{},'{}'\n".format(id, tokens)
+            file.write(csv_format)
 
 
 
@@ -59,5 +64,4 @@ def toCSV() -> None:
 
 if __name__ == '__main__':
     digestData()
-    all_tokens = ''.join(all_tokens)
-    print(all_tokens.)
+    toCSV()
